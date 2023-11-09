@@ -163,7 +163,7 @@ Uproszczony schemat działania algorytmu:\\\\
     \item Pamiętając 2 ostatnie punkty należące do otoczki szukamy punktów o najmniejszym kącie z nimi
 \end{enumerate}
 
-Teoretyczna złożoność tego algorytmu to:
+Do sortowania użyłem funkcję wbudowaną w Pythona \verb|sorted()|, używając funkcji \verb|cmp_to_key|, z biblioteki functools. Teoretyczna złożoność tego algorytmu to:
 \[O(n\log n)\]
 
 Poniżej prezentuję wyniki działania algorytmu na poszczególnych zbiorach. W animacjach na niebiesko zaznaczam
@@ -173,7 +173,7 @@ Na rysunkach pokazujących wynik wyznaczania otoczki, na niebiesko zaznaczone s�
 punkty należące do otoczki (połączono je też linią).
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {graham_a_gif/graham_a-}{0}{381}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_a_gif/graham_a-0.png}
@@ -189,7 +189,7 @@ punkty należące do otoczki (połączono je też linią).
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {graham_b_gif/graham_b-}{0}{201}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_b_gif/graham_b-0.png}
@@ -205,7 +205,7 @@ punkty należące do otoczki (połączono je też linią).
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {graham_c_gif/graham_c-}{0}{289}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_c_gif/graham_c-0.png}
@@ -221,7 +221,7 @@ punkty należące do otoczki (połączono je też linią).
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {graham_d_gif/graham_d-}{0}{257}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_d_gif/graham_d-0.png}
@@ -270,7 +270,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 
 \pagebreak
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {jarvis_a_gif/jarvis_a-}{0}{149}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_a_gif/jarvis_a-0.png}
@@ -286,7 +286,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=800]{5}
     {jarvis_b_gif/jarvis_b-}{0}{2062}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_b_gif/jarvis_b-0.png}
@@ -302,7 +302,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
     {jarvis_c_gif/jarvis_c-}{0}{173}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_c_gif/jarvis_c-0.png}
@@ -318,7 +318,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay]{5}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=30]{5}
     {jarvis_d_gif/jarvis_d-}{0}{77}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_d_gif/jarvis_d-0.png}
@@ -342,8 +342,59 @@ Rysunku \ref{fig:anim_jarvis_b} skacze "losowo" po kolejnych punktach zanim traf
 częścią otoczki.
 
 \section{Modyfikacja Zbiorów}
+Modyfikując zbiory do testów, chciałem sprawdzić jak algorytmy zachowają się dla dużych chmur punktów
+oraz gdy współrzędne punktów są duże - prowadzi to do sytuacji gdzie wyznaczniki są duże, a to z kolei
+prowadzi do zmniejszenia precyzji liczb zmienno przecinkowych. Dlatego postanowiłem zwiększyć liczbę punktów
+i współrzędne punków. Nowe zbiory danych przedstawiają się w następujący sposób.
+
+\begin{itemize}
+    \item [$a'$)] zawierający $10^5$ losowo wygenerowanych punktów o współrzędnych z przedziału $[-10^{14}, 10^{14}]$
+    \item [$b'$)] zawierający $10^3$ losowo wygenerowanych punktów leżących na okręgu o środku $(0,0)$ i promieniu $R=10^{14}$
+    \item [$c'$)] zawierający $10^5$ losowo wygenerowanych punktów leżących na bokach prostokąta o wierzchołkach $(-10^{14}, 10^{14}), (-10^{14},-10^{14}), (10^{14},-10^{14}), (10^{14},10^{14})$
+    \item [$d'$)] zawierający wierzchołki kwadratu $(0, 0), (10^{14}, 0), (10^{14}, 10^{14}), (0, 10^{14})$ oraz punkty wygenerowane losowo w sposób następujący: 
+    po $10^5$ punktów na dwóch bokach kwadratu leżących na osiach i po $10^5$ punktów na przekątnych kwadratu
+\end{itemize}
+Niestety dla zbioru $b'$ nie udało mi się przetestować większej liczby punktów, gdyż algorytm Jarvisa działał tak wolno, 
+że Jupyter Notebook się restartował po kilku minutach działania algorytmu.
+\\\\
+Poniżej zamieszam wizualizacje wyników działania obu algorytmów (oba dały te same wyniki), dla nowych zbiorów
+testowych. Na niebiesko zaznaczone są punkty wejściowe, a na żółto punkty należące do otoczki (połączone czerwoną linią).
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        
+        \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=\columnwidth]{tests/graham/graham_points_a_test.png}
+            \caption{Wizualizacja wyniku działania algorytmów dla testowego zbior $a'$)}
+            \label{fig:points_a_test}
+        \end{subfigure} & 
+        \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=\columnwidth]{tests/graham/graham_points_b_test.png}
+            \caption{Wizualizacja wyniku działania algorytmów dla testowego zbioru $b'$)}
+            \label{fig:points_b_test}
+        \end{subfigure} \\
+
+        \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=\columnwidth]{tests/graham/graham_points_c_test.png}
+            \caption{Wizualizacja wyniku działania algorytmów dla testowego zbioru $c'$)}
+            \label{fig:points_c_test}
+        \end{subfigure} & 
+        \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=\columnwidth]{tests/graham/graham_points_d_test.png}
+            \caption{Wizualizacja wyniku działania algorytmów dla testowego zbioru $d'$)}
+            \label{fig:points_d_test}
+        \end{subfigure} \\
+    
+    \end{tabular}
+    \caption{Wizualizacje zbiorów testowych}
+\end{table}
+
+
+\pagebreak
 
 \section{Testy Wydajnosci}
+Poniżej prezentuję tabellę zestawiającą wyniki testów wydajnościowych obu algorytmów. Przy okazji testów chciałem też sprawdzić zachowanie algorytmu dla ekstremalnych danych, więc wypisałem ilości punktów zaklasyfikowanych do otoczki.
 \bgroup
 \def\arraystretch{2}
 \begin{table}[H]
@@ -352,25 +403,34 @@ częścią otoczki.
     \hline
      \multirow{2}{*}{Zbiór}        & \multicolumn{2}{c||}{Czas [s]} & \multicolumn{2}{c|}{Ilość punktów w otoczce} \\ \cline{2-5}
             & Graham & Jarvis & Graham & Jarvis\\ \hline \rowcolor{LightGray}
-            Zbiór A  &  	0.000340 & 	0.001889  &	12 	    & 12    \\ \hline 
-            Zbiór B  &  	0.000487 & 	0.014579  &	100     & 100   \\ \hline \rowcolor{LightGray}
-            Zbiór C  &  	0.000360 & 	0.000984  &	8 	    & 8     \\ \hline
-            Zbiór D  &  	0.000256 & 	0.002104  &	7 	    & 7     \\ \hline \rowcolor{LightGray}
-            Zbiór A' &   	0.684662 & 	2.653454  &	27 	    & 27    \\ \hline
-            Zbiór B' &   	0.006486 & 	1.214329  &	1000    & 1000  \\ \hline \rowcolor{LightGray}
-            Zbiór C' &   	0.997871 & 	0.976684  &	8 	    & 8     \\ \hline
-            Zbiór D' &   	6.546711 & 	2.636133  &	6 	    & 6     \\ \hline 
+        Zbiór A  &	0.000418 	&   0.001040 & 	8 	    & 8 \\ \hline
+        Zbiór B  &	0.000982 	&   0.016427 & 	100 	& 100 \\ \hline \rowcolor{LightGray}
+        Zbiór C  &	0.000442 	&   0.002085 & 	8 	    & 8 \\ \hline
+        Zbiór D  &	0.000312 	&   0.000546 & 	4 	    & 4 \\ \hline \rowcolor{LightGray}
+        Zbiór A' & 	0.928114    &	2.826157 & 	27 	    & 27 \\ \hline
+        Zbiór B' & 	0.007917    &	1.275697 & 	1000 	& 1000 \\ \hline \rowcolor{LightGray}
+        Zbiór C' & 	1.188857    &	1.126793 & 	8 	    & 8 \\ \hline
+        Zbiór D' & 	9.745127    &	1.795051 & 	4 	    & 4 \\ \hline
     \end{tabular}
     \caption{Tabela zestawiająca czas obliczania otoczki dla danych zbiorów przez oba algorytmy}
+    \label{tab:wydajnosc}
 \end{table}
 \egroup
+
+Jak widać w Tabeli \ref{tab:wydajnosc} algorytm Grahama jest szybszy od algorytmu Jarvisa w przypadkach ogólnych o rząd wielkości.\\
+Jednakże, dla zbiorów C' i D', gdzie liczba punktów w otoczce jest ograniczona, algorytm Jarvisa okazuje się szybszy przez ograniczenie złożoności obliczeniowej.\\
+W przypadkach gdy wszystkie wierzchołki należą do otoczki algorytm Jarvisa okazuje się
+dużo wolniejszy od algorytmu Grahama co pokazuje zbiór B'.\\\\
+
+Warto tutaj, też wspomnieć, że dzięki temu, że funkcja sortująca punkty w algorytmie Grahama jest funkcją wbudowanąw język Python i jest zaimplementowana w języku C, przez
+to działa ona dużo szybciej niż kod Pythona, który jest interpretowany. Powoduje to sytuację, że przewaga algorytmu Jarvisa, w przypadkach ograniczonej otoczki, nie jest aż tak duża jak wynikałoby to z teoretycznej złożoności obliczeniowej.\\\\
 \pagebreak
 
 \section{Wnioski}
 W moich testach ewidentnie szybszy okazał się algorytm Grahama, co zresztą przewiduje teoretyczna złożoność algorytmów.
 Algorytm Jarvisa błyszczy gdy liczba punktów w otoczce jest niewielka, lecz w pozostałych przypadkach, przeszukiwanie całego
 zbioru danych dla każdego punktu otoczki bardzo spowalnia działanie algorytmu, w tym miejscu pojawia się przewaga algorytmu 
-Grahama, który sortuje punkty, dzięki czemu, później samą otoczkę może wyznaczyć liniowo.\\\\
+Grahama, który sortuje punkty, dzięki czemu, później samą otoczkę może wyznaczyć liniowo.\\
 
 \noindent Warto jeszcze poruszyć kwestię poprawności działania algorytmów. Oba algorytmy dały taki sam wynik dla skrajnych danych,
 oba dały wyniki oczekiwane w testach przygotowanych przez KN Bit i w końcu wyniki moich testów są racjonalne, więc z całą
