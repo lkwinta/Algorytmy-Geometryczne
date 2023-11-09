@@ -1,0 +1,37 @@
+version: '3'
+
+tasks:
+  lab_1:
+    desc: Compile lab_1.tex to pdf
+    sources:
+      - src/lab_1/*
+    cmds:
+      - tectonic "./src/lab_1/lab_1.tex" -Z search-path="src" --outdir "pdf"
+  
+  lab_2:
+    desc: Compile lab_2.tex to pdf
+    sources:
+      - src/lab_2/*
+    cmds:
+      - tectonic "./src/lab_2/lab_2.tex" -Z search-path="src" --outdir "pdf"
+
+  lab_3:
+    desc: Compile lab_3.tex to pdf
+    sources:
+      - src/lab_3/*
+    cmds:
+      - tectonic "./src/lab_3/lab_3.tex" -Z search-path="src" --outdir "pdf"
+
+  lab_4:
+    desc: Compile lab_4.tex to pdf
+    sources:
+      - src/lab_4/*
+    cmds:
+      - tectonic "./src/lab_4/lab_4.tex" -Z search-path="src" --outdir "pdf"
+
+  lab_5:
+    desc: Compile lab_5.tex to pdf
+    sources:
+      - src/lab_5/*
+    cmds:
+      - tectonic "./src/lab_5/lab_5.tex" -Z search-path="src" --outdir "pdf"
