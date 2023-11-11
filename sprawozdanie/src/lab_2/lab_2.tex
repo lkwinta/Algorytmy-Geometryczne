@@ -149,12 +149,12 @@ ze wzoru z \textit{Laboratorium 1}.
 \]
 Aby zaoszczędzić czas na wykonywania operacji pierwiastkowania, nie obliczałem dokładnej odległości między
 punktami lecz porównywałem punkty na podstawie kwadratu odległości.
-\\\\\\
+\\
 Do obliczeń przyjąłem dokładność zera: $\varepsilon = 10^{-32}$.\\ 
 Dla tej dokładności algorytm dawał oczekiwane wyniki w
  testach przygotowanych przez KN Bit.
-\\\\\\
-Uproszczony schemat działania algorytmu:\\\\
+\\
+Uproszczony schemat działania algorytmu:
 
 \begin{enumerate}
     \item Znalezienie punktu $p_0$ o najmniejszej współrzędnej x i y
@@ -168,13 +168,16 @@ Do sortowania użyłem funkcję wbudowaną w Pythona \verb|sorted()|, używając
 
 Poniżej prezentuję wyniki działania algorytmu na poszczególnych zbiorach. W animacjach na niebiesko zaznaczam
 punkty ze zbioru wejściowego, na czerwono punkty ze zbioru po usunięciu współliniowych (punkty brane pod uwagę przy wyznaczaniu otoczki),
-a na zielono punkty należące do otoczki (są też one połączone linią).\\\\ 
+a na zielono punkty należące do otoczki (są też one połączone linią). \textbf{Uwaga, animację testowałem tylko
+przy otwieraniu pdf przez program Adobe Acrobat Reader, nie mam pewności czy w innych programach do otwierania
+pdf animację działają, w takim wypadku widoczna będzie jedna wybrana klatka animacji...}
+\\\\ 
 Na rysunkach pokazujących wynik wyznaczania otoczki, na niebiesko zaznaczone są punkty wejściowe, a na zielono
 punkty należące do otoczki (połączono je też linią).
 
 \begin{figure}[H]
     \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
-    {graham_a_gif/graham_a-}{0}{381}
+    {graham_a_gif/graham_a-}{0}{383}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_a_gif/graham_a-0.png}
     \caption{Animacja pokazująca działanie algorytmu Grahama na zbiorze a)}
@@ -221,8 +224,8 @@ punkty należące do otoczki (połączono je też linią).
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
-    {graham_d_gif/graham_d-}{0}{257}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=54]{5}
+    {graham_d_gif/graham_d-}{0}{89}
     \centering
     %\includegraphics[width=0.8\textwidth]{graham_d_gif/graham_d-0.png}
     \caption{Animacja pokazująca działanie algorytmu Grahama na zbiorze d)}
@@ -271,7 +274,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 \pagebreak
 \begin{figure}[H]
     \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
-    {jarvis_a_gif/jarvis_a-}{0}{149}
+    {jarvis_a_gif/jarvis_a-}{0}{131}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_a_gif/jarvis_a-0.png}
     \caption{Animacja pokazująca działanie algorytmu Jarvisa na zbiorze a)}
@@ -287,7 +290,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 
 \begin{figure}[H]
     \animategraphics[width=0.8\textwidth, loop, autoplay, poster=800]{5}
-    {jarvis_b_gif/jarvis_b-}{0}{2062}
+    {jarvis_b_gif/jarvis_b-}{0}{1752}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_b_gif/jarvis_b-0.png}
     \caption{Animacja pokazująca działanie algorytmu Jarvisa na zbiorze b)}
@@ -303,7 +306,7 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 
 \begin{figure}[H]
     \animategraphics[width=0.8\textwidth, loop, autoplay, poster=99]{5}
-    {jarvis_c_gif/jarvis_c-}{0}{173}
+    {jarvis_c_gif/jarvis_c-}{0}{149}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_c_gif/jarvis_c-0.png}
     \caption{Animacja pokazująca działanie algorytmu Jarvisa na zbiorze c)}
@@ -318,8 +321,8 @@ Na ilustracjach pokazujących wynik działania algorytmu na niebiesko zaznaczono
 \end{figure}
 
 \begin{figure}[H]
-    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=30]{5}
-    {jarvis_d_gif/jarvis_d-}{0}{77}
+    \animategraphics[width=0.8\textwidth, loop, autoplay, poster=15]{5}
+    {jarvis_d_gif/jarvis_d-}{0}{29}
     \centering
     %\includegraphics[width=0.8\textwidth]{jarvis_d_gif/jarvis_d-0.png}
     \caption{Animacja pokazująca działanie algorytmu Jarvisa na zbiorze d)}
@@ -388,7 +391,13 @@ testowych. Na niebiesko zaznaczone są punkty wejściowe, a na żółto punkty n
     
     \end{tabular}
     \caption{Wizualizacje zbiorów testowych}
+    \label{tab:wiz_testy}
 \end{table}
+
+Jak widać na wizualizacjach w Tabeli \ref{tab:wiz_testy} algorytmy dały oczekiwane wyniki. Niepokojące
+może być umiejscowienie punków na bokach kwadratu zbioru a na rysunku \ref{fig:points_a_test}, lecz biorąc
+pod uwagę współrzędne rzędu $10^14$ jest to prawdopodobne, że punkty w takiej skali wyglądają jako współliniowe
+ale tak naprawdę nie są.
 
 
 \pagebreak
@@ -403,11 +412,11 @@ Poniżej prezentuję tabellę zestawiającą wyniki testów wydajnościowych obu
     \hline
      \multirow{2}{*}{Zbiór}        & \multicolumn{2}{c||}{Czas [s]} & \multicolumn{2}{c|}{Ilość punktów w otoczce} \\ \cline{2-5}
             & Graham & Jarvis & Graham & Jarvis\\ \hline \rowcolor{LightGray}
-        Zbiór A  &	0.000418 	&   0.001040 & 	8 	    & 8 \\ \hline
+        Zbiór A  &	0.000418 	&   0.001040 & 	9 	    & 9 \\ \hline
         Zbiór B  &	0.000982 	&   0.016427 & 	100 	& 100 \\ \hline \rowcolor{LightGray}
         Zbiór C  &	0.000442 	&   0.002085 & 	8 	    & 8 \\ \hline
         Zbiór D  &	0.000312 	&   0.000546 & 	4 	    & 4 \\ \hline \rowcolor{LightGray}
-        Zbiór A' & 	0.928114    &	2.826157 & 	27 	    & 27 \\ \hline
+        Zbiór A' & 	0.928114    &	2.826157 & 	28 	    & 28 \\ \hline
         Zbiór B' & 	0.007917    &	1.275697 & 	1000 	& 1000 \\ \hline \rowcolor{LightGray}
         Zbiór C' & 	1.188857    &	1.126793 & 	8 	    & 8 \\ \hline
         Zbiór D' & 	9.745127    &	1.795051 & 	4 	    & 4 \\ \hline
@@ -435,5 +444,8 @@ Grahama, który sortuje punkty, dzięki czemu, później samą otoczkę może wy
 \noindent Warto jeszcze poruszyć kwestię poprawności działania algorytmów. Oba algorytmy dały taki sam wynik dla skrajnych danych,
 oba dały wyniki oczekiwane w testach przygotowanych przez KN Bit i w końcu wyniki moich testów są racjonalne, więc z całą
 pewnością można stwierdzić, że algorytmy działają przewidywalnie. Na pewno nie do końca poprawnie, bo na pewno istnieją dane 
-dla których przyjęta przeze mnie precyzja obliczeń nie jest odpowiednia i wynik działania programu.
+dla których przyjęta przeze mnie precyzja obliczeń nie jest odpowiednia i wynik działania programu. Jednakże dla danych dla których
+testowałem algorytmy wyniki są poprawne, w zbiorze B i B' wszystkie punkty koła trafiły do otoczki, a w zbiorze D i D' do otoczki
+trafiły tylko wierzchołki kwadratu. 
+
 \end{document}
