@@ -3,22 +3,50 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 
-\usepackage{adjustbox}
+\usepackage[export]{adjustbox}
 \usepackage{scrextend}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{svg}
 
 \usepackage{geometry}
-\geometry{a4paper, left=15mm, top=30mm, right=15mm}
+\geometry{a4paper, left=15mm, top=30mm, right=15mm, bottom=20mm}
 
 \usepackage{gensymb}
 \usepackage{graphicx} 
 \usepackage{isotope}
 \usepackage{array}
 \usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{multirow}
 
 \usepackage{hyperref}
+\usepackage{sectsty}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[labelformat=simple]{subcaption}
+\usepackage{xcolor,colortbl}
+\usepackage{animate}
+
+\sectionfont{\normalfont\huge\sectionrule{0pt}{0pt}{-6pt}{1pt}}
+\subsectionfont{\normalfont\LARGE}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,LO]{\Large Łukasz Kwinta}
+\fancyhead[LE,RO]{\Large Laboratorium 3 - Triangulacja Wielokątów Monotonicznych}
+\fancyfoot[CE,CO]{\Large\thepage}
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightGray}{gray}{0.95}
+
+\newcolumntype{a}{>{\columncolor{Gray}}c}
+\newcolumntype{b}{>{\columncolor{white}}c}
+
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -27,9 +55,27 @@
     urlcolor=black
 }
 
-    
-\begin{document}
-   
-       
+\title{\fontsize{30pt}{30pt}\selectfont Laboratorium 3 \\ Triangulacja Wielokątów Monotonicznych}
+\author{\fontsize{20pt}{20pt}\selectfont Łukasz Kwinta}
+\date{}
 
+\begin{document}
+\maketitle
+\Large
+\vspace*{\fill}
+\section{Dane Techniczne}
+Procesor: AMD Ryzen 7 5700U\\
+System operacyjny: Ubuntu 20.04 w środowisku WSL 2 na Windows 11 x64\\
+Pamięć ram: 32 GB DDR4\\
+\\
+\\
+Środowisko i język: Python 3.9 + Jupyter Notebook w środowisku Anaconda\\
+Wykresy tworzyłem przy pomocy narzędzia przygotowanego przez KN Bit, 
+do obliczeń numerycznych używałem biblioteki numpy.
+ Dane przechowywałem w zmiennych typu float – typ danych o rozmiarze 64 bitów, 
+ odpowiednik typu double w języku C.
+\pagebreak
+\section{Opis Realizacji Ćwiczenia}
+Celem ćwiczenia była implementacja algorytmów Grahama i Jarvisa do wyznaczania
+otoczki wypukłej chmury punktów oraz porównanie ich precyzji oraz wydajności.
 \end{document}
