@@ -120,8 +120,8 @@ monotonicznych.
     \end{figure}
     \noindent Taka klasyfikacja pozwala na podzielenie dowolnego wielokąta na wielokąty y-monotoniczne w
     celu triangulacji mniejszych części wielokąta prostą metodą. Powyższą metodą można też sprawdzić 
-    monotoniczność wielokąta - wielokąt monotoniczny zawierać będzie tylko wierzchołki prawidłowe oraz maksymalnie
-    jeden początkowy i jeden końcowy, lecz z pewnością jest to mniej optymalny sposób niż poprzednia metoda. Do 
+    monotoniczność wielokąta - wielokąt monotoniczny nie będzie miał wierzchołków dzielących i łączących
+     - lecz z pewnością jest to mniej optymalny sposób niż poprzednia metoda. Do 
     sprawdzenia kąta wewnętrznego używałem wyznacznika 3 kolejnych punktów wielokąta.
 
 \section{Triangulacja wielokąta y-monotonicznego}
@@ -167,14 +167,15 @@ monotonicznych.
     \pagebreak
     \subsection{Wizualizacja działania algorytmu}
     Dokonałem modyfikacji algorytmu aby możliwa była wizualizacja kolejnych kroków działania algorytmy, 
-    poniżej przedstawiam animację. \textbf{\textit{Uwaga! Animacja może nie działać w każdym
+    poniżej przedstawiam animację. Na niebiesko dodałem punkty wielokąta. Na żółto zaznaczone są punkty 
+    na stosie. Na czerwono rysuję tworzoną triangulację. \textbf{\textit{Uwaga! Animacja może nie działać w każdym
     programie do plików PDF, została przetestowana w programie Adobe Acrobat gdzie działa.
     W razie gdyby animacja nie działała będzie wyświetlona jedna klatka animacji. Samą 
     animację można znaleźć w notebooku z rozwiązaniem zadania.}}
     \begin{figure}[H]
         \centering
-        \animategraphics[width=.9\textwidth, loop, autoplay, poster=30]{5}
-        {animation_example/animation_example-}{0}{71}
+        \animategraphics[width=.9\textwidth, loop, autoplay, poster=41]{5}
+        {animation_example/animation_example-}{0}{102}
         \caption{Animacja działania algorytmu na przykładowym wielokącie}
         \label{fig:animation_of_triangulation}
     \end{figure}
@@ -193,11 +194,14 @@ monotonicznych.
     bokami w "zygzak". Wybrałem takie ułożone empirycznie na podstawie doświadczeń z 
     testami przygotowanymi przez KN Bit.\\\\
     Po analizie wyników algorytmu stwierdzam, że wyniki działania algorytmu są poprawne. \\\\
-    W notebooku można też obejrzeć wizualizację działania algorytmu (animację).
+    W notebooku można też obejrzeć wizualizację działania algorytmu (animację).\\\\
+    Wielokąty E i F są to wielokąty zasugerowane na zajęciach. Sprawdzają one zachowanie 
+    algorytmu w przypadku gdy wszystkie punkty znajdują się na jednym lub drugim łańcuchu. Animacje
+    dla tych punktów można obejrzeć w załączonym notebooku.
     \pagebreak
     \subsection{Wielokąt A}
     Pierwszy wielokąt to taki którego współrzędne są rzędu $10^{13}$ i zawiera wspomniane wcześniej
-    zygzaki na bokach.
+    zygzaki na bokach. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=.65\textwidth]{test_a_poly.png}
@@ -258,7 +262,36 @@ monotonicznych.
         \caption{Triangulacja wielokąta D}
         \label{fig:test_d_tri}
     \end{figure}
+
+    \subsection{Wielokąt E}
+    Wielokąt sprawdza zachowanie algorytmu gdy wszystkie punkty będą na prawym łańcuchu.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.65\textwidth]{test_e_poly.png}
+        \caption{Wizualizacja wielokąta testowego E}
+        \label{fig:test_e_poly}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.65\textwidth]{test_e_tri.png}
+        \caption{Triangulacja wielokąta E}
+        \label{fig:test_e_tri}
+    \end{figure}
     
+    \subsection{Wielokąt F}
+    Wielokąt sprawdza zachowanie algorytmu w przypadku gdy punkty są na lewym łańcuchu.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.65\textwidth]{test_f_poly.png}
+        \caption{Wizualizacja wielokąta testowego F}
+        \label{fig:test_f_poly}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.65\textwidth]{test_f_tri.png}
+        \caption{Triangulacja wielokąta F}
+        \label{fig:test_f_tri}
+    \end{figure}
     
 
 \section{Wnioski}
