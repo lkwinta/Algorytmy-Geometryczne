@@ -28,10 +28,3 @@ tasks:
       - src/lab_4/*
     cmds:
       - tectonic "./src/lab_4/lab_4.tex" -Z search-path="src" --outdir "pdf"
-
-  lab_5:
-    desc: Compile lab_5.tex to pdf
-    sources:
-      - src/lab_5/*
-    cmds:
-      - tectonic "./src/lab_5/lab_5.tex" -Z search-path="src" --outdir "pdf"
